@@ -1,5 +1,5 @@
 import unittest
-from ..instruction import Instruction, InstrType
+from instruction import Instruction, InstrType
 
 class TestInstruction(unittest.TestCase):
     def setUp(self):

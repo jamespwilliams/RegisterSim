@@ -8,17 +8,16 @@ class InstructionExecutor:
     '''
     @staticmethod
     def execute(instr: Instruction, state: List[int]) -> (int, List[int]):
-        label: int = 0
+        label: int = instr.i
         if instr.type == InstrType.INCR:
             # Instruction of form Rn+ -> Li
             state[instr.n] += 1
-            label = instr.i
-        elif instr.type = InstrType.DECR:
+        elif instr.type == InstrType.DECR:
             # Instruction of form Rn- -> Li, Lj
-            label = instr.j
             if state[instr] > 0:
                 state[instr] -= 1
-                label = instr.i
+            else:
+                label = instr.j
         
         return (label, state)
             
