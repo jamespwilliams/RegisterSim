@@ -26,10 +26,10 @@ class TestProgram(unittest.TestCase):
         state = p.execute([0,5])
         self.assertEqual(state, [5,0])
     
-    # def test_broken_program(self):
-    #     p = Program()
-    #     p.add("R0+ -> L1")
-    #     self.assertRaises(RuntimeError, p.execute, [0,0])
+    def test_broken_program(self):
+        p = Program()
+        p.add("R0+ -> L1")
+        self.assertRaises(RuntimeError, p.execute, [0,0])
     
 
 if __name__ == '__main__':

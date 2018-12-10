@@ -14,13 +14,21 @@ class Program:
         while instr.type != InstrType.HALT:
             label, state = InstructionExecutor.execute(instr, state)
 
-            if label > len(self.instructions):
+            if label >= len(self.instructions):
                 raise RuntimeError("Program jumped to invalid label.")
             
             instr = self.instructions[label]
             
         return state
-        
             
     def add(self, instr_str):
         self.instructions.append(Instruction(instr_str))
+        
+    def load_from_file(self, filename):
+        content = []
+        with open(fname) as f:
+            content = f.readlines()
+    
+        content = [x.strip() for x in content]
+        for line in content:
+            self.add(line)
