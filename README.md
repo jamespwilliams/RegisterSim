@@ -15,7 +15,8 @@ Usage: `python RegisterSim program_name state`
            HALT
          
     Separate instructions must be placed on new lines. Note that line 
-    numbers are not necessary and should be omitted.
+    numbers are not necessary and should be omitted. Example files can
+    be found in tests/test_programs/
         
 * `state`:
     
