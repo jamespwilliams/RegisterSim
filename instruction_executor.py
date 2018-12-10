@@ -14,8 +14,8 @@ class InstructionExecutor:
             state[instr.n] += 1
         elif instr.type == InstrType.DECR:
             # Instruction of form Rn- -> Li, Lj
-            if state[instr] > 0:
-                state[instr] -= 1
+            if state[instr.n] > 0:
+                state[instr.n] -= 1
             else:
                 label = instr.j
         
