@@ -9,9 +9,11 @@ Usage: `python RegisterSim program_name state`
     The passed program file must be of the correct format, with
     each line of the file being a valid register instruction. Valid
     instruction types are as follows:
-        Rn+ -> Li
-        Rn- -> Li, Lj
-        HALT
+    
+           Rn+ -> Li
+           Rn- -> Li, Lj
+           HALT
+         
     Separate instructions must be placed on new lines. Note that line 
     numbers are not necessary and should be omitted.
         
