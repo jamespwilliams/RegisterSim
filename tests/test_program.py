@@ -37,6 +37,14 @@ class TestProgram(unittest.TestCase):
         
         state = p.execute([0,5])
         self.assertEqual(state, [5,0])
+        
+    def test_multiplication_program(self):
+        p = Program()
+        p.load_from_file("tests/test_programs/mult.rprog")
+        
+        state = p.execute([0, 13, 5, 0, 0, 0, 0])
+        self.assertEqual(state[0], 65)
+        
 
 if __name__ == '__main__':
     unittest.main()
