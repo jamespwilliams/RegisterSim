@@ -29,17 +29,11 @@ class Instruction:
             raise ArgumentException('Invalid instruction format.')
             return
         
-        self.n = m.group(0)
-        self.i = m.group(2)
-        if m.group(1) == '-':
+        self.n = int(m.group(1))
+        self.i = int(m.group(3))
+        if m.group(2) == '-':
             self.type = InstrType.DECR
+            self.j = int(m.group(4))  
         else:
-            self.type = InstrType.INCR
-            self.j = m.group(1)
-            
-        if '+' in instr_str:
-            type = INCR
-            
-
-        
+            self.type = InstrType.INCR      
         
