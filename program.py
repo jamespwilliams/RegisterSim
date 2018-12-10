@@ -26,7 +26,7 @@ class Program:
         
     def load_from_file(self, filename):
         content = []
-        with open(fname) as f:
+        with open(filename) as f:
             content = f.readlines()
     
         content = [x.strip() for x in content]

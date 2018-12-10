@@ -30,7 +30,13 @@ class TestProgram(unittest.TestCase):
         p = Program()
         p.add("R0+ -> L1")
         self.assertRaises(RuntimeError, p.execute, [0,0])
-    
+        
+    def test_load_program(self):
+        p = Program()
+        p.load_from_file("tests/test_programs/test_prog.rprog")
+        
+        state = p.execute([0,5])
+        self.assertEqual(state, [5,0])
 
 if __name__ == '__main__':
     unittest.main()
