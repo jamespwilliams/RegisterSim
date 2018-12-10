@@ -35,5 +35,5 @@ class Instruction:
             self.type = InstrType.DECR
             self.j = int(m.group(4))  
         else:
-            self.type = InstrType.INCR      
+            self.type = InstrType.INCR
         
