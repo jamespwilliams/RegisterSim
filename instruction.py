@@ -14,14 +14,10 @@ class Instruction:
         HALT
     '''
     instr_pattern: str = 'R?([0-9]+)([\+\-])\s*->\s*L?([0-9]+)\s*(?:,\s*L?([0-9]+))?'
-    
-    type: InstrType = InstrType.HALT
-    n: int
-    i: int
-    j: int
-    
+
     def __init__(self, instr_str):
         if instr_str == 'HALT':
+            self.type = InstrType.HALT
             return
         
         m = re.match(self.instr_pattern, instr_str)

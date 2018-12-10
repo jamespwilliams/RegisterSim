@@ -2,11 +2,9 @@ from typing import List
 from instruction import Instruction, InstrType
 from instruction_executor import InstructionExecutor
 
-class Program:
-    instructions: List[Instruction] = []
-    
+class Program:    
     def __init__(self):
-        self.instructions = []
+        self.instructions: List[Instruction] = []
     
     def execute(self, state):
         if len(self.instructions) == 0:
