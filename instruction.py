@@ -1,3 +1,4 @@
+from enum import Enum
 import re
 
 class InstrType(Enum):
@@ -12,10 +13,9 @@ class Instruction:
         Rn- -> Li, Lj
         HALT
     '''
-    instr_pattern: str = 
-        'R?([0-9]+)([\+\-])\s*->\s*L?([0-9]+)\s*(?:,\s*L?([0-9]+))?'
+    instr_pattern: str = 'R?([0-9]+)([\+\-])\s*->\s*L?([0-9]+)\s*(?:,\s*L?([0-9]+))?'
     
-    type: InstrType = HALT
+    type: InstrType = InstrType.HALT
     n: int
     i: int
     j: int
@@ -24,11 +24,18 @@ class Instruction:
         if instr_str == 'HALT':
             return
         
-        m = re.match(, statement )
-        
-        instr_str = re.sub('[ a-zA-Z]', '', instr_str)
-        if not instr_str:
+        m = re.match(self.instr_pattern, instr_str)
+        if not m:
+            raise ArgumentException('Invalid instruction format.')
             return
+        
+        self.n = m.group(0)
+        self.i = m.group(2)
+        if m.group(1) == '-':
+            self.type = InstrType.DECR
+        else:
+            self.type = InstrType.INCR
+            self.j = m.group(1)
             
         if '+' in instr_str:
             type = INCR

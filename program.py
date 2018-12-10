@@ -4,6 +4,9 @@ from instruction import Instruction
 class Program:
     instructions: List[Instruction]
     
+    def __init__(self):
+        Instruction("abc")
+    
     def execute(self):
         for instruction in instructions:
             instruction.execute()
