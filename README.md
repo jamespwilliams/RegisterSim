@@ -20,7 +20,5 @@ Usage: `python RegisterSim program_name state`
         
 * `state`:
     
-    A list of integers [x0, x1, ..., xn], such that registers will be
+    A list of integers [l0,x0,x1, ..., xn], such that the RM will be started at L0 with registers
     set to R0 = x0, R1 = x1, ..., Rn = xn on program start.
-    Note that the line number is not included, and will always be
-    assumed to be 0.
